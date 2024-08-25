@@ -1,66 +1,80 @@
-Controle de Despesas
+# Projeto de Registro de Gastos Pessoais
 
-Descrição
+Este é um projeto Django para o registro e consulta de despesas pessoais, com suporte para conversão de moedas.
 
-O projeto Controle de Despesas é uma aplicação web desenvolvida em Django para gerenciar e acompanhar despesas pessoais. O sistema permite a criação, visualização, edição e exclusão de despesas, categorizando-as e permitindo a conversão dos valores para diferentes moedas usando taxas de câmbio atualizadas. A aplicação também oferece funcionalidades para gerenciar categorias de despesas e importar taxas de câmbio de uma API externa.
+## Funcionalidades
 
-Funcionalidades
+- Registro de Despesas: Adicione, edite e exclua despesas, especificando a descrição, valor, categoria e data.
+- Categorias: Organize suas despesas em diferentes categorias.
+- Conversão de Moeda: Converta o valor das despesas para diferentes moedas usando uma API de taxas de câmbio.
+- Importação de Taxas de Câmbio: Atualize as taxas de câmbio automaticamente a partir de uma API.
 
-Cadastro e Gestão de Categorias: Permite adicionar, editar e excluir categorias de despesas.
-Cadastro e Gestão de Despesas: Adicione, edite e exclua despesas, associando-as a categorias específicas e registrando a data da despesa.
-Conversão de Moeda: Visualize os valores das despesas convertidos para diferentes moedas com base nas taxas de câmbio mais recentes.
-Importação de Taxas de Câmbio: Atualize as taxas de câmbio a partir de uma API externa para garantir a precisão dos valores convertidos.
-Tecnologias Utilizadas
-Django: Framework web para desenvolvimento rápido de aplicações.
-Python: Linguagem de programação utilizada no desenvolvimento.
-API de Taxas de Câmbio: Utilizada para obter taxas de conversão de moedas.
-HTML/CSS: Para construção das páginas web e estilização.
+## Instalação
 
-Instalação
+### Pré-requisitos
 
-Clone o Repositório
-    git clone https://github.com/Matheus-Andre-Soares/workshop-fabrica-2024.2-matheus-andre
-    cd seu-repositorio
+- Python 3.8 ou superior
+- Django 5.1 ou superior
+- Requests (biblioteca para fazer requisições HTTP)
 
-Crie um Ambiente Virtual
-    python -m venv env
-    Ative o Ambiente Virtual
+### Passo a Passo
 
-No Windows:
-    env\Scripts\activate
+```bash
+1. Clone o repositório:
+git clone https://github.com/seu-usuario/seu-repositorio.git
+cd seu-repositorio
 
-No macOS/Linux:
-    source env/bin/activate
+2. Crie e ative um ambiente virtual:
+python -m venv env
+source env/bin/activate  # No Windows, use `env\Scripts\activate`
 
-Instale as Dependências
-    pip install -r requirements.txt
+3. Instale as dependências:
+pip install -r requirements.txt
 
-Configure o Banco de Dados
-    python manage.py migrate
+4. Execute as migrações do banco de dados:
+python manage.py migrate
 
-Crie um Superusuário (opcional, para administração)
-    python manage.py createsuperuser
+5. Inicie o servidor de desenvolvimento:
+python manage.py runserver
 
-Inicie o Servidor de Desenvolvimento
-    python manage.py runserver
-    A aplicação estará disponível em http://127.0.0.1:8000/
+6. Acesse o projeto no seu navegador em `http://127.0.0.1:8000/`.
+```
 
- Uso
+## Estrutura do Projeto
 
-Página Inicial: Navegue para a página inicial para acessar as funcionalidades do aplicativo.
-Gestão de Categorias: Acesse a lista de categorias para adicionar, editar ou excluir categorias.
-Gestão de Despesas: Adicione, edite ou exclua despesas através da lista de despesas.
-Conversão de Moeda: Use o formulário na página de despesas para converter os valores das despesas para diferentes moedas.
-Configuração da API de Taxas de Câmbio
-O projeto utiliza uma API externa para obter as taxas de câmbio. Certifique-se de que o URL da API está correto e funcional na função importar_taxas dentro de views.py.
+- `models.py`: Contém as definições dos modelos `Categoria`, `Despesa` e `TaxaDeCambio`.
+- `forms.py`: Contém os formulários para `Categoria` e `Despesa`.
+- `views.py`: Contém as views para listagem, criação, atualização e exclusão de despesas e categorias, além da importação de taxas de câmbio.
+- `templates/`: Contém os templates HTML para exibição das páginas.
+  - `index.html`: Página inicial.
+  - `despesa_list.html`: Listagem de despesas com suporte para conversão de moeda.
+  - `despesa_form.html`: Formulário para criação e edição de despesas.
+  - `categoria_list.html`: Listagem de categorias.
+  - `categoria_form.html`: Formulário para criação e edição de categorias.
 
-Contribuição
+## Utilização
 
-Contribuições são bem-vindas! Sinta-se à vontade para enviar pull requests, relatar problemas ou sugerir melhorias.
+### Adicionando Despesas
 
-Contato
+1. Na página de listagem de despesas, clique em "Nova Despesa".
+2. Preencha o formulário com a descrição, valor, categoria e data.
+3. O valor é armazenado em USD (dólar).
 
-Se você tiver alguma dúvida, entre em contato com:
+### Convertendo Moedas
 
-Nome: Matheus André
-E-mail: matheusandre2004@gmail.com
+1. Na listagem de despesas, insira o código da moeda desejada (por exemplo, `USD` para Dólar Americano).
+2. Clique em "Converter" para ver as despesas na moeda selecionada.
+
+### Importando Taxas de Câmbio
+
+Acesse a URL `/importar_taxas/` para importar as taxas de câmbio mais recentes via API.
+
+## Como Contribuir
+
+```bash
+1. Faça um fork do projeto.
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`).
+3. Commit suas mudanças (`git commit -m 'Adiciona nova feature'`).
+4. Faça o push para a branch (`git push origin feature/nova-feature`).
+5. Abra um Pull Request.
+```
