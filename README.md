@@ -62,7 +62,7 @@ python manage.py runserver
 
 ### Convertendo Moedas
 
-1. Na listagem de despesas, insira o código da moeda desejada (por exemplo, `USD` para Dólar Americano).
+1. Na listagem de despesas, insira o código da moeda desejada (por exemplo, `BRL` para Real Brasileiro).
 2. Clique em "Converter" para ver as despesas na moeda selecionada.
 
 ### Importando Taxas de Câmbio
