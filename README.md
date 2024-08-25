@@ -68,13 +68,3 @@ python manage.py runserver
 ### Importando Taxas de Câmbio
 
 Acesse a URL `/importar_taxas/` para importar as taxas de câmbio mais recentes via API.
-
-## Como Contribuir
-
-```bash
-1. Faça um fork do projeto.
-2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`).
-3. Commit suas mudanças (`git commit -m 'Adiciona nova feature'`).
-4. Faça o push para a branch (`git push origin feature/nova-feature`).
-5. Abra um Pull Request.
-```
